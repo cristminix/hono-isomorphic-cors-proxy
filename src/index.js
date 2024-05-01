@@ -48,7 +48,7 @@ const View = () => {
   return (
     <html>
       <title>Hono isomorphic-cors-proxy</title>
-      <h1>cristminix/isomorphic-cors-proxy</h1>
+      <h1>https://github.com/cristminix/hono-isomorphic-cors-proxy</h1>
       <p>
         This is the server software that runs on{" "}
         <a href="https://your-host">https://your-host</a>
