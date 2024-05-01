@@ -1,10 +1,6 @@
 import { Hono } from "hono"
 import { cors } from "hono/cors"
-import { stream, streamText, streamSSE } from "hono/streaming"
-
-// import url from "url"
-import middlewareFn from "./middleware"
-// const middleware = middlewareFn({ origin: "*", insecure_origins: "" })
+import { stream } from "hono/streaming"
 import allow from "./allow-request"
 const allowHeaders = [
   "accept-encoding",
@@ -137,14 +133,14 @@ const service = async (c, next) => {
         headers["user-agent"] = "git/@isomorphic-git/cors-proxy"
       }
       let p = `${u.pathname}${u.search}`
-      console.log(`p=${p}`)
+      // console.log(`p=${p}`)
       let parts = p.match(/\/([^\/]*)\/(.*)/)
       let pathdomain = parts[1]
       let remainingpath = parts[2]
       let protocol = insecure_origins.includes(pathdomain) ? "http" : "https"
       const fetchUrl = `${protocol}://${pathdomain}/${remainingpath}`
       const requestBody = req.raw.body
-      console.log(requestBody, headers)
+      // console.log(requestBody, headers)
       const fetchOpt = {
         method: req.method,
         // keepalive: true,
