@@ -51,9 +51,7 @@ const View = () => {
       <h1>cristminix/isomorphic-cors-proxy</h1>
       <p>
         This is the server software that runs on{" "}
-        <a href="https://cors.isomorphic-git.org">
-          https://cors.isomorphic-git.org
-        </a>
+        <a href="https://your-host">https://your-host</a>
         &ndash; a free service (generously sponsored by{" "}
         <a href="https://www.cloudflare.com/?utm_source=ref&utm_medium=link&utm_campaign=isomorphic-git">
           Clever Cloud
@@ -63,8 +61,8 @@ const View = () => {
       </p>
       <p>
         The source code is hosted on Github at{" "}
-        <a href="https://github.com/cristminix/isomorphic-cors-proxy">
-          https://github.com/cristminix/isomorphic-cors-proxy
+        <a href="https://github.com/cristminix/hono-isomorphic-cors-proxy">
+          https://github.com/cristminix/hono-isomorphic-cors-proxy
         </a>
       </p>
       <h2>Terms of Use</h2>
