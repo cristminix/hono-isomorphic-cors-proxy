@@ -54,7 +54,7 @@ const View = () => {
         <a href="https://your-host">https://your-host</a>
         &ndash; a free service (generously sponsored by{" "}
         <a href="https://www.cloudflare.com/?utm_source=ref&utm_medium=link&utm_campaign=isomorphic-git">
-          Clever Cloud
+          Cloudflare Worker
         </a>
         ) for users of <a href="https://isomorphic-git.org">isomorphic-git</a>{" "}
         that enables cloning and pushing repos in the browser.
