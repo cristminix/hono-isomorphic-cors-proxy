@@ -98,7 +98,7 @@ function paramsToObject(entries) {
   return result
 }
 const service = async (c, next) => {
-  const insecure_origins = ["http://localhost:5000"]
+  const insecure_origins = ["localhost:3000"]
   const { req, res } = c
   const wrapped = cors({
     allowHeaders,
@@ -135,10 +135,12 @@ const service = async (c, next) => {
       let parts = p.match(/\/([^\/]*)\/(.*)/)
       let pathdomain = parts[1]
       let remainingpath = parts[2]
+      console.log({pathdomain})
+      
       let protocol = insecure_origins.includes(pathdomain) ? "http" : "https"
       const fetchUrl = `${protocol}://${pathdomain}/${remainingpath}`
       const requestBody = req.raw.body
-      // console.log(requestBody, headers)
+      // console.log(fetchUrl)
       const fetchOpt = {
         method: req.method,
         // keepalive: true,
@@ -149,10 +151,12 @@ const service = async (c, next) => {
             ? requestBody
             : undefined,
       }
+      const isSecureUrl = fetchUrl.startsWith('https')
       try {
+        console.log({fetchUrl},{fetchOpt})
         const f = await fetch(fetchUrl, fetchOpt)
         if (f.headers.has("location")) {
-          let newUrl = f.headers.get("location").replace(/^https?:\//, "")
+          let newUrl = isSecureUrl ? f.headers.get("location").replace(/^https?:\//, "") : f.headers.get("location").replace(/^http?:\//, "")
           f.headers.set("location", newUrl)
         }
         c.status(f.status)
